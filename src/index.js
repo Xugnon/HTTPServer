@@ -42,7 +42,7 @@ const server = http.createServer((request, response) => {
 
     //Verificação do metodo HTTP que está chegando, é do tipo POST, PUT OU PATCH. Se tiver, o bodyParser pega a string do body e trasnforma em um objeto JSON
     if (['POST', 'PUT', 'PATCH'].includes(request.method)) {
-      // O fato de ser um stream, faz com que a informação vá chegando aos poucos. Feito então, dentr d bodyParser, uma função de callback
+      // O fato de ser um stream, faz com que a informação vá chegando aos poucos. Feito então, dentro d bodyParser, uma função de callback
       bodyParser(request, () => route.handler(request, response));
     } else {
       route.handler(request, response);
